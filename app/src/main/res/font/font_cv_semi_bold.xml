@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font android:fontStyle="normal"  android:font="@font/gillsans_semibold"
+        app:fontStyle="normal" app:font="@font/gillsans_semibold"/>
+    <font android:fontStyle="italic"  android:font="@font/gillsans_semibolditalic"
+        app:fontStyle="italic"  app:font="@font/gillsans_semibolditalic"/>
+</font-family>
