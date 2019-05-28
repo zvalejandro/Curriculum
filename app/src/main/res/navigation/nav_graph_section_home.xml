@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@id/homeFragment">
+
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.zaraos.curriculum.presentation.home.HomeFragment"
+            android:label=""
+            tools:layout="@layout/fragment_home">
+
+        <action
+                android:id="@+id/action_homeFragment_to_garageFragment"
+                app:destination="@id/experienceFragment"
+                app:popEnterAnim="@anim/enter_from_left"
+                app:popExitAnim="@anim/exit_to_right"
+                app:exitAnim="@anim/exit_to_left"/>
+    </fragment>
+
+
+    <fragment
+            android:id="@+id/experienceFragment"
+            android:name="com.zaraos.curriculum.presentation.experience.ExperienceFragment"
+            android:label="@string/menu_experience"
+            tools:layout="@layout/fragment_experience"/>
+
+</navigation>

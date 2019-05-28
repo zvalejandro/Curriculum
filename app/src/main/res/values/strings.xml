@@ -1,4 +1,16 @@
 <resources>
 
+    <string name="menu_experience">Experience</string>
+
+    <string name="msg_error">Something went wrong, try again later</string>
+    <string name="msg_empty_state">Something went wrong, try again later</string>
+    <string name="msg_retry">Retry</string>
+
+
+    <string name="home_experience">Experience</string>
+    <string name="home_see_all">see all</string>
+    <string name="home_summary">Professional summary</string>
+    <string name="experience_responsibilities">Responsibilities:</string>
+    <string name="experience_achievements">Main achievements:</string>
 
 </resources>

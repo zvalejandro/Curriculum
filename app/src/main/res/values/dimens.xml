@@ -2,4 +2,20 @@
 
     <dimen name="text_margin">16dp</dimen>
 
+
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="text_default_normal">14sp</dimen>
+    <dimen name="text_default_little">12sp</dimen>
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_xxxlarge">18dp</dimen>
+    <dimen name="margin_xxhuge">24dp</dimen>
+    <dimen name="margin_xxxhuge">32dp</dimen>
+
+    <dimen name="img_profile">120dp</dimen>
+    <dimen name="img_profile_ico">24dp</dimen>
+    <dimen name="img_experience_ico">48dp</dimen>
+    <dimen name="img_empty_state">250dp</dimen>
+
+
 </resources>

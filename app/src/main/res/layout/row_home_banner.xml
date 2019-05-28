@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/homeBannerImg"
+            android:layout_width="@dimen/img_profile"
+            android:layout_height="@dimen/img_profile"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:src="@drawable/placeholder"
+            app:civ_border_color="@color/grayBrown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:id="@+id/homeBannerName"
+            style="@style/TextTitle"
+            tools:text="full name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/greenBoom"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            app:layout_constraintTop_toBottomOf="@+id/homeBannerImg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <TextView
+            android:id="@+id/homeBannerPosition"
+            style="@style/TextSubtitle"
+            tools:text="position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayBrown"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            app:layout_constraintTop_toBottomOf="@+id/homeBannerName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+            android:id="@+id/homeBannerEmail"
+            style="@style/TextDesc"
+            tools:text="email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayBrown"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            app:layout_constraintTop_toBottomOf="@+id/homeBannerPosition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <ImageView
+            android:id="@+id/homeBannerImgLinkedIn"
+            android:layout_width="@dimen/img_profile_ico"
+            android:layout_height="@dimen/img_profile_ico"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
+            android:src="@drawable/vector_linkedin"
+            android:tint="@color/grayBrown"
+            app:layout_constraintTop_toBottomOf="@+id/homeBannerEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/homeBannerLinkedIn"
+            app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <TextView
+            android:id="@+id/homeBannerLinkedIn"
+            style="@style/TextDesc"
+            tools:text="user linkedin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_default"
+            app:layout_constraintTop_toTopOf="@+id/homeBannerImgLinkedIn"
+            app:layout_constraintBottom_toBottomOf="@+id/homeBannerImgLinkedIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/homeBannerImgLinkedIn"/>
+
+    <ImageView
+            android:id="@+id/homeBannerImgGithub"
+            android:layout_width="@dimen/img_profile_ico"
+            android:layout_height="@dimen/img_profile_ico"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_default"
+            android:src="@drawable/vector_github"
+            android:tint="@color/grayBrown"
+            app:layout_constraintTop_toBottomOf="@+id/homeBannerImgLinkedIn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/homeBannerGithub"
+            app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <TextView
+            android:id="@+id/homeBannerGithub"
+            style="@style/TextDesc"
+            tools:text="user github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_default"
+            app:layout_constraintTop_toTopOf="@+id/homeBannerImgGithub"
+            app:layout_constraintBottom_toBottomOf="@+id/homeBannerImgGithub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/homeBannerImgGithub"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grayLight"
+            android:layout_marginStart="@dimen/margin_xxxhuge"
+            android:layout_marginEnd="@dimen/margin_xxxhuge"
+            android:layout_marginTop="@dimen/margin_default"
+            app:layout_constraintTop_toBottomOf="@+id/homeBannerImgGithub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
