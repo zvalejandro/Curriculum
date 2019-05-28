@@ -15,7 +15,6 @@
                 app:destination="@id/experienceFragment"
                 app:popEnterAnim="@anim/enter_from_left"
                 app:popExitAnim="@anim/exit_to_right"
-                app:enterAnim="@anim/enter_from_right"
                 app:exitAnim="@anim/exit_to_left"/>
     </fragment>
 

@@ -10,5 +10,7 @@
     <string name="home_experience">Experience</string>
     <string name="home_see_all">see all</string>
     <string name="home_summary">Professional summary</string>
+    <string name="experience_responsibilities">Responsibilities:</string>
+    <string name="experience_achievements">Main achievements:</string>
 
 </resources>

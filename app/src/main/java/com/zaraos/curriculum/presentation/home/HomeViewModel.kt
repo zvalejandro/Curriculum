@@ -9,6 +9,7 @@ import com.zaraos.curriculum.data.repository.HomeRepository
 import com.zaraos.curriculum.data.source.Resource
 import com.zaraos.curriculum.di.components.DaggerActivityComponent
 import com.zaraos.curriculum.domain.entity.UserEntity
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 /**
@@ -17,6 +18,7 @@ import javax.inject.Inject
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
     @Inject
     lateinit var homeRepository: HomeRepository
+    private val compositeDisposable = CompositeDisposable()
 
     val _userInformation = MutableLiveData<Resource<UserEntity>>()
     val userInformation: LiveData<Resource<UserEntity>>
@@ -37,5 +39,11 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         homeRepository.getUserInformation {
             _userInformation.postValue(it)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        homeRepository.allCompositeDisposable.forEach { compositeDisposable.add(it) }
+        compositeDisposable.clear()
     }
 }
