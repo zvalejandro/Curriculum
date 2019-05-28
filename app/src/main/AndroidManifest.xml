@@ -3,14 +3,17 @@
           package="com.zaraos.curriculum">
 
     <application
+            android:name=".MyApplication"
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="false"
-            android:theme="@style/AppTheme">
+            android:theme="@style/CVTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.home.HomeActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/CVTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
