@@ -3,6 +3,7 @@ package com.zaraos.curriculum.presentation.home
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zaraos.curriculum.R
 import com.zaraos.curriculum.base.BaseFragment
@@ -24,7 +25,7 @@ class HomeFragment : BaseFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private val homeAdapter = HomeAdapter {
-        //openOption(it)
+        openExperience(it)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,5 +60,11 @@ class HomeFragment : BaseFragment() {
                 }
             }
         })
+    }
+
+    private fun openExperience(type: Int) {
+        this.view?.let {
+            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_garageFragment)
+        }
     }
 }

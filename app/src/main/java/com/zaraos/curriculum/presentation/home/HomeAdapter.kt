@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.row_home_summary.view.*
 /**
  * Created by alejandro.zaraos on 2019-05-28.
  */
-class HomeAdapter(private val listener: ((AppCompatDialogFragment) -> Unit)? = null) :
+class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -116,6 +116,9 @@ class HomeAdapter(private val listener: ((AppCompatDialogFragment) -> Unit)? = n
                 //homeExperienceImgCompany
                 homeExperienceCompany.text = experience.companyName
                 homeExperienceRole.text = experience.roleName
+                homeExperienceSeeAll.setOnClickListener {
+                    listener?.invoke(item.type)
+                }
             }
         }
     }
