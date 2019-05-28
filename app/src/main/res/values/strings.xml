@@ -1,4 +1,5 @@
 <resources>
 
     <string name="menu_experience">Experience</string>
+    <string name="msg_error">Something went wrong, try again later</string>
 </resources>
