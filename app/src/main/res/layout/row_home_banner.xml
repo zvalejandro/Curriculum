@@ -17,7 +17,7 @@
             android:layout_marginEnd="@dimen/margin_small"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin_small"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/placeholder"
             app:civ_border_color="@color/grayBrown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

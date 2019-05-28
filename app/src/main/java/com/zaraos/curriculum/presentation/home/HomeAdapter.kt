@@ -3,10 +3,11 @@ package com.zaraos.curriculum.presentation.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.DecodeFormat
 import com.zaraos.curriculum.R
 import com.zaraos.curriculum.base.EmptyHolder
+import com.zaraos.curriculum.di.modules.GlideApp
 import com.zaraos.curriculum.domain.entity.RecyclerItem
 import com.zaraos.curriculum.domain.entity.UserEntity
 import kotlinx.android.synthetic.main.row_home_banner.view.*
@@ -77,18 +78,20 @@ class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
         fun bind(item: RecyclerItem) = with(itemView) {
             val details: UserEntity? = item.obj as? UserEntity
             details?.let {
+                GlideApp.with(itemView.context)
+                    .asBitmap()
+                    .dontAnimate()
+                    .format(DecodeFormat.PREFER_RGB_565)
+                    .load(it.photoUrl)
+                    .placeholder(R.drawable.placeholder)
+                    .into(homeBannerImg)
+
                 homeBannerName.text = it.fullName
                 homeBannerPosition.text = it.currentPosition
                 homeBannerEmail.text = it.email
                 homeBannerLinkedIn.text = it.linkedinId
                 homeBannerGithub.text = it.githubId
             }
-
-
-            /*
-            whipBrakesBtnInfo.setOnClickListener {
-                listener?.invoke(ColorsDialog.newInstance())
-            }*/
         }
     }
 
@@ -105,7 +108,13 @@ class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
         fun bind(item: RecyclerItem) = with(itemView) {
             val experience: UserEntity.Experience? = item.obj as? UserEntity.Experience
             experience?.let {
-                //homeExperienceImgCompany
+                GlideApp.with(itemView.context)
+                    .asBitmap()
+                    .format(DecodeFormat.PREFER_RGB_565)
+                    .load(it.logoUrl)
+                    .placeholder(R.drawable.placeholder)
+                    .into(homeExperienceImgCompany)
+
                 homeExperienceCompany.text = experience.companyName
                 homeExperienceRole.text = experience.roleName
                 homeExperienceSeeAll.setOnClickListener {

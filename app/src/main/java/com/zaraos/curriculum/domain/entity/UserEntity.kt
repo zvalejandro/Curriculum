@@ -11,6 +11,7 @@ data class UserEntity(
     @SerializedName("full_name") val fullName: String,
     @SerializedName("name") val name: String,
     @SerializedName("last_name") val lastName: String,
+    @SerializedName("photo_url") val photoUrl: String,
     @SerializedName("current_position") val currentPosition: String,
     @SerializedName("email") val email: String,
     @SerializedName("linkedin_id") val linkedinId: String,

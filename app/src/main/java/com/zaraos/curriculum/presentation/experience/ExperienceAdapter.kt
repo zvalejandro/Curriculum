@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.DecodeFormat
 import com.zaraos.curriculum.R
+import com.zaraos.curriculum.di.modules.GlideApp
 import com.zaraos.curriculum.domain.entity.ExperienceEntity
 import kotlinx.android.synthetic.main.row_experience_content.view.*
 
@@ -34,6 +36,13 @@ class ExperienceAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private inner class ContentHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: ExperienceEntity) = with(itemView) {
+            GlideApp.with(itemView.context)
+                .asBitmap()
+                .format(DecodeFormat.PREFER_RGB_565)
+                .load(item.companyLogo)
+                .placeholder(R.drawable.placeholder)
+                .into(experienceImgCompany)
+
             experienceRole.text = item.roleName
             experienceCompany.text = item.companyName
             experienceDate.text = String.format("%s - %s", item.startDate, item.endDate)
