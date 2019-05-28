@@ -3,10 +3,15 @@ package com.zaraos.curriculum.presentation.home
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.zaraos.curriculum.R
 import com.zaraos.curriculum.base.BaseFragment
 import com.zaraos.curriculum.base.extensions.getActivityViewModel
 import com.zaraos.curriculum.data.source.Status
+import com.zaraos.curriculum.domain.entity.RecyclerItem
+import com.zaraos.curriculum.presentation.home.HomeAdapter.Companion.TYPE_BANNER
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.view_empty_state.*
 
 /**
  * Created by alejandro.zaraos on 2019-05-28.
@@ -16,11 +21,15 @@ class HomeFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_home
 
     private lateinit var homeViewModel: HomeViewModel
-
+    private val homeAdapter = HomeAdapter {
+        //openOption(it)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel = getActivityViewModel()
+        homeList.layoutManager = LinearLayoutManager(activity)
+        homeList.adapter = homeAdapter
         initView()
     }
 
@@ -28,12 +37,18 @@ class HomeFragment : BaseFragment() {
         homeViewModel.userInformation.observe(this, Observer {
             when (it?.status) {
                 Status.SUCCESS -> {
+                    homeEmptyState.visibility = View.GONE
                     it.data?.let { user ->
-
+                        val list: ArrayList<RecyclerItem> = ArrayList()
+                        list.add(RecyclerItem(TYPE_BANNER, user))
+                        homeAdapter.homeList = list
                     }
                 }
                 Status.ERROR -> {
-
+                    homeEmptyState.visibility = View.VISIBLE
+                    emptyStateTextRetry.setOnClickListener {
+                        homeViewModel.retry()
+                    }
                 }
                 Status.LOADING -> {
                 }
