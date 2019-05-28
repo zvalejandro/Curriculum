@@ -6,4 +6,9 @@
     <string name="msg_empty_state">Something went wrong, try again later</string>
     <string name="msg_retry">Retry</string>
 
+
+    <string name="home_experience">Experience</string>
+    <string name="home_see_all">see all</string>
+    <string name="home_summary">Professional summary</string>
+
 </resources>

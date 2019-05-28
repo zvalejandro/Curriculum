@@ -40,7 +40,7 @@
             android:text="@string/msg_retry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/green_to_gray"
+            android:textColor="@color/blue_to_gray"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"

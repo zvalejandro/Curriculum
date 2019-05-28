@@ -10,6 +10,8 @@ import com.zaraos.curriculum.base.EmptyHolder
 import com.zaraos.curriculum.domain.entity.RecyclerItem
 import com.zaraos.curriculum.domain.entity.UserEntity
 import kotlinx.android.synthetic.main.row_home_banner.view.*
+import kotlinx.android.synthetic.main.row_home_experience.view.*
+import kotlinx.android.synthetic.main.row_home_summary.view.*
 
 /**
  * Created by alejandro.zaraos on 2019-05-28.
@@ -19,8 +21,9 @@ class HomeAdapter(private val listener: ((AppCompatDialogFragment) -> Unit)? = n
 
     companion object {
         const val TYPE_BANNER: Int = 100
-        const val TYPE_EXPERIENCE: Int = 101
-        const val TYPE_SKILLS: Int = 102
+        const val TYPE_SUMMARY: Int = 101
+        const val TYPE_EXPERIENCE: Int = 102
+        const val TYPE_SKILLS: Int = 103
     }
 
     var homeList = mutableListOf<RecyclerItem>()
@@ -42,6 +45,10 @@ class HomeAdapter(private val listener: ((AppCompatDialogFragment) -> Unit)? = n
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_banner, parent, false)
                 BannerHolder(view)
             }
+            TYPE_SUMMARY -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_summary, parent, false)
+                SummaryHolder(view)
+            }
             TYPE_EXPERIENCE -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_experience, parent, false)
                 ExperienceHolder(view)
@@ -61,6 +68,9 @@ class HomeAdapter(private val listener: ((AppCompatDialogFragment) -> Unit)? = n
         when (getItemViewType(position)) {
             TYPE_BANNER -> {
                 (holder as BannerHolder).bind(homeList[position])
+            }
+            TYPE_SUMMARY -> {
+                (holder as SummaryHolder).bind(homeList[position])
             }
             TYPE_EXPERIENCE -> {
                 (holder as ExperienceHolder).bind(homeList[position])
@@ -90,9 +100,23 @@ class HomeAdapter(private val listener: ((AppCompatDialogFragment) -> Unit)? = n
         }
     }
 
+    private inner class SummaryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: RecyclerItem) = with(itemView) {
+            val professionalSummary: String? = item.obj as? String
+            professionalSummary?.let {
+                homeSummaryDesc.text = professionalSummary
+            }
+        }
+    }
+
     private inner class ExperienceHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: RecyclerItem) = with(itemView) {
-
+            val experience: UserEntity.Experience? = item.obj as? UserEntity.Experience
+            experience?.let {
+                //homeExperienceImgCompany
+                homeExperienceCompany.text = experience.companyName
+                homeExperienceRole.text = experience.roleName
+            }
         }
     }
 

@@ -10,6 +10,8 @@ import com.zaraos.curriculum.base.extensions.getActivityViewModel
 import com.zaraos.curriculum.data.source.Status
 import com.zaraos.curriculum.domain.entity.RecyclerItem
 import com.zaraos.curriculum.presentation.home.HomeAdapter.Companion.TYPE_BANNER
+import com.zaraos.curriculum.presentation.home.HomeAdapter.Companion.TYPE_EXPERIENCE
+import com.zaraos.curriculum.presentation.home.HomeAdapter.Companion.TYPE_SUMMARY
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.view_empty_state.*
 
@@ -41,6 +43,9 @@ class HomeFragment : BaseFragment() {
                     it.data?.let { user ->
                         val list: ArrayList<RecyclerItem> = ArrayList()
                         list.add(RecyclerItem(TYPE_BANNER, user))
+
+                        user.professionalSummary?.let { list.add(RecyclerItem(TYPE_SUMMARY, it)) }
+                        user.experience?.let { list.add(RecyclerItem(TYPE_EXPERIENCE, it)) }
                         homeAdapter.homeList = list
                     }
                 }

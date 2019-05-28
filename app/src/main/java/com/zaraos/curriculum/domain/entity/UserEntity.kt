@@ -15,6 +15,7 @@ data class UserEntity(
     @SerializedName("email") val email: String,
     @SerializedName("linkedin_id") val linkedinId: String,
     @SerializedName("github_id") val githubId: String,
+    @SerializedName("professional_summary") val professionalSummary: String?,
     @SerializedName("experience") val experience: Experience?
 ) {
 
@@ -27,6 +28,9 @@ data class UserEntity(
         val companyName: String = "",
 
         @SerializedName("role_name")
-        val roleName: String = ""
+        val roleName: String = "",
+
+        @SerializedName("logo_url")
+        val logoUrl: String = ""
     )
 }
