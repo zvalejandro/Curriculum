@@ -2,6 +2,7 @@ package com.zaraos.curriculum.presentation.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,6 +38,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView() {
+        (activity as AppCompatActivity).supportActionBar?.hide()
         homeViewModel.userInformation.observe(this, Observer {
             when (it?.status) {
                 Status.SUCCESS -> {

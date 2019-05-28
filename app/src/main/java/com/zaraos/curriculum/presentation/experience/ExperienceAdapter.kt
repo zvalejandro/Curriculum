@@ -35,6 +35,30 @@ class ExperienceAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private inner class ContentHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: ExperienceEntity) = with(itemView) {
             experienceRole.text = item.roleName
+            experienceCompany.text = item.companyName
+            experienceDate.text = String.format("%s - %s", item.startDate, item.endDate)
+
+            if (item.responsibilities.isNotEmpty()) {
+                var completStr = ""
+                for (newItem in item.responsibilities)
+                    completStr = completStr.plus("• $newItem").plus("\n")
+
+                experienceResponsibilities.text = completStr
+            } else {
+                experienceResponsTitle.visibility = View.GONE
+                experienceResponsibilities.visibility = View.GONE
+            }
+
+            if (item.achievements.isNotEmpty()) {
+                var completStr = ""
+                for (newItem in item.achievements)
+                    completStr = completStr.plus("• $newItem").plus("\n")
+
+                experienceAchievements.text = completStr
+            } else {
+                experienceAchievementsTitle.visibility = View.GONE
+                experienceAchievements.visibility = View.GONE
+            }
         }
     }
 

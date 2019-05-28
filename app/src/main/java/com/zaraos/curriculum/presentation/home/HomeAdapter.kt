@@ -23,7 +23,6 @@ class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
         const val TYPE_BANNER: Int = 100
         const val TYPE_SUMMARY: Int = 101
         const val TYPE_EXPERIENCE: Int = 102
-        const val TYPE_SKILLS: Int = 103
     }
 
     var homeList = mutableListOf<RecyclerItem>()
@@ -53,10 +52,6 @@ class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_experience, parent, false)
                 ExperienceHolder(view)
             }
-            TYPE_SKILLS -> {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.row_home_skills, parent, false)
-                SkillsHolder(view)
-            }
             else -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.row_empty, parent, false)
                 EmptyHolder(view)
@@ -74,9 +69,6 @@ class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
             }
             TYPE_EXPERIENCE -> {
                 (holder as ExperienceHolder).bind(homeList[position])
-            }
-            TYPE_SKILLS -> {
-                (holder as SkillsHolder).bind(homeList[position])
             }
         }
     }
@@ -120,12 +112,6 @@ class HomeAdapter(private val listener: ((Int) -> Unit)? = null) :
                     listener?.invoke(item.type)
                 }
             }
-        }
-    }
-
-    private inner class SkillsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: RecyclerItem) = with(itemView) {
-
         }
     }
 

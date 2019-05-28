@@ -13,6 +13,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
+        supportActionBar
         val navController = Navigation.findNavController(this, R.id.section_home)
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
